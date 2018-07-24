@@ -10,7 +10,7 @@ namespace P3.Controllers
     public class HomeController : Controller
     {
 
-        private Context context = new Context();
+        //private Context context = new Context();
 
         //public ActionResult Index()
         //{
