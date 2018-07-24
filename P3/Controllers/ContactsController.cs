@@ -18,6 +18,7 @@ namespace P3.Controllers
         // GET: Contacts
         public ActionResult Index()
         {
+            var context = db.Contacts.ToList();
             return View(db.Contacts.ToList());
         }
 

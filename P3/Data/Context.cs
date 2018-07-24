@@ -14,6 +14,6 @@ namespace P3.Data
             //Initialize database with seed data from ContactInitializer.
             Database.SetInitializer(new ContactInitializer());
         }
-       public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

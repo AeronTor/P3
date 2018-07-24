@@ -7,7 +7,7 @@ using P3.Models;
 
 namespace P3.Data
 {
-    public class ContactInitializer : DropCreateDatabaseIfModelChanges<Context>
+    public class ContactInitializer : DropCreateDatabaseAlways<Context>
     {
         //Initialize database with seed data
         protected override void Seed(Context context)
@@ -43,6 +43,15 @@ namespace P3.Data
                 LastName = "Smith",
                 Email = "tomysmith@hotmail.com"
             };
+
+            context.Contacts.Add(contact1);
+            context.Contacts.Add(contact2);
+            context.Contacts.Add(contact3);
+            context.Contacts.Add(contact4);
+
+            context.SaveChanges();
+
         }
     }
+
 }
