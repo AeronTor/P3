@@ -15,14 +15,14 @@ namespace P3.Controllers
     {
         private Context db = new Context();
 
-        // GET: Contacts
+        // retrieve contacts and display in view
         public ActionResult Index()
         {
             var context = db.Contacts.ToList();
             return View(db.Contacts.ToList());
         }
 
-        // GET: Contacts/Details/5
+        // retrieve contact details and display in view
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,15 +37,13 @@ namespace P3.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Create
+        // Create a new contact and display in view
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Contacts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Post create contact
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Email")] Contact contact)
@@ -60,7 +58,7 @@ namespace P3.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Edit/5
+        // retrieve edit contact
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,9 +73,7 @@ namespace P3.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Post new edit to database
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Email")] Contact contact)
@@ -91,7 +87,7 @@ namespace P3.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Delete/5
+        // Delete contact
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,7 +102,7 @@ namespace P3.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Delete/5
+        // Post delete contact
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
